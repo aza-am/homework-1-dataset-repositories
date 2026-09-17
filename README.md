@@ -72,4 +72,5 @@ The processed JSON files required by the web prototypes are included in the repo
 
 ## Working prototypes
 
-Public GitHub Pages links will be added after deployment.
+- [CrashLens](https://aza-am.github.io/homework-1-dataset-repositories/prototype_1/)
+- [ScreenEquity](https://aza-am.github.io/homework-1-dataset-repositories/prototype_2/)
