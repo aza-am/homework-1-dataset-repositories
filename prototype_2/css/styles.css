@@ -1,0 +1,321 @@
+/* GENERAL */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f6fa;
+    color: #172033;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+.page {
+    width: min(1440px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 28px 0 36px;
+}
+
+
+/* HEADER */
+
+.header {
+    margin-bottom: 26px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 44px;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    color: #172033;
+}
+
+.header h1 span {
+    color: #8a3ffc;
+}
+
+.header p {
+    margin: 10px 0 0;
+    font-size: 17px;
+    color: #667085;
+}
+
+
+/* FILTERS */
+
+.filter-card {
+    display: grid;
+    grid-template-columns:
+        1.25fr
+        1fr
+        1fr
+        1.2fr
+        0.9fr;
+
+    gap: 16px;
+
+    align-items: end;
+
+    background: white;
+    border: 1px solid #dfe4ec;
+    border-radius: 18px;
+    padding: 20px;
+
+    box-shadow:
+        0 3px 12px rgba(18, 32, 51, 0.05);
+}
+
+.filter-group {
+    min-width: 0;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #667085;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+select,
+button {
+    width: 100%;
+    height: 50px;
+
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+select {
+    padding: 0 14px;
+    background: white;
+    color: #172033;
+
+    border: 1px solid #ccd4df;
+}
+
+select:focus {
+    outline: 2px solid rgba(138, 63, 252, 0.18);
+    border-color: #8a3ffc;
+}
+
+.year-controls {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+    align-items: center;
+}
+
+.year-controls span {
+    color: #667085;
+    font-size: 18px;
+}
+
+button {
+    border: none;
+    background: #172033;
+    color: white;
+
+    font-weight: 700;
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+button:hover {
+    opacity: 0.92;
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+
+/* KPI */
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+
+    margin-top: 22px;
+}
+
+.kpi-card {
+    min-height: 150px;
+
+    padding: 24px 26px;
+
+    background: white;
+    border: 1px solid #dfe4ec;
+    border-radius: 18px;
+
+    box-shadow:
+        0 3px 12px rgba(18, 32, 51, 0.05);
+}
+
+.kpi-card p {
+    margin: 0 0 16px;
+
+    color: #667085;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.kpi-card h2 {
+    margin: 0;
+
+    color: #172033;
+    font-size: 42px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.kpi-card span {
+    display: block;
+    margin-top: 9px;
+
+    color: #98a2b3;
+    font-size: 12px;
+}
+
+
+/* CHARTS */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+
+    margin-top: 22px;
+}
+
+.chart-card,
+.wide-card {
+    background: white;
+    border: 1px solid #dfe4ec;
+    border-radius: 18px;
+
+    box-shadow:
+        0 3px 12px rgba(18, 32, 51, 0.05);
+}
+
+.chart-card {
+    min-height: 470px;
+    padding: 22px;
+}
+
+.wide-card {
+    margin-top: 18px;
+    padding: 22px;
+}
+
+.chart-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 8px;
+}
+
+.chart-heading h3 {
+    margin: 0;
+
+    color: #172033;
+    font-size: 18px;
+}
+
+.chart-heading p {
+    margin: 5px 0 0;
+
+    color: #98a2b3;
+    font-size: 13px;
+}
+
+.chart {
+    width: 100%;
+    height: 370px;
+}
+
+.large-chart {
+    height: 430px;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 28px 0 6px;
+}
+
+footer p {
+    margin: 0;
+
+    text-align: center;
+    color: #98a2b3;
+    font-size: 12px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1150px) {
+
+    .filter-card {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    #resetFilters {
+        grid-column: span 2;
+    }
+
+    .kpi-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .page {
+        width: min(100% - 24px, 1440px);
+    }
+
+    .header h1 {
+        font-size: 36px;
+    }
+
+    .filter-card {
+        grid-template-columns: 1fr;
+    }
+
+    #resetFilters {
+        grid-column: auto;
+    }
+
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart {
+        height: 340px;
+    }
+
+}

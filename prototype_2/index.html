@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ScreenEquity</title>
+
+    <link
+        rel="stylesheet"
+        href="css/styles.css"
+    >
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+
+<body>
+
+    <main class="page">
+
+        <!-- HEADER -->
+
+        <header class="header">
+            <h1>
+                Screen<span>Equity</span>
+            </h1>
+
+            <p>
+                Exploring gender representation and film performance ·
+                Analysis period: 1970–2013
+            </p>
+        </header>
+
+
+        <!-- FILTERS -->
+
+        <section class="filter-card">
+
+            <div class="filter-group year-filter">
+                <label>YEAR RANGE</label>
+
+                <div class="year-controls">
+                    <select id="yearStart"></select>
+
+                    <span>–</span>
+
+                    <select id="yearEnd"></select>
+                </div>
+            </div>
+
+
+            <div class="filter-group">
+                <label for="decadeFilter">
+                    DECADE
+                </label>
+
+                <select id="decadeFilter">
+                    <option value="all">
+                        All decades
+                    </option>
+                </select>
+            </div>
+
+
+            <div class="filter-group">
+                <label for="resultFilter">
+                    BECHDEL RESULT
+                </label>
+
+                <select id="resultFilter">
+                    <option value="all">
+                        All results
+                    </option>
+
+                    <option value="PASS">
+                        PASS
+                    </option>
+
+                    <option value="FAIL">
+                        FAIL
+                    </option>
+                </select>
+            </div>
+
+
+            <div class="filter-group">
+                <label for="financialMetric">
+                    FINANCIAL METRIC
+                </label>
+
+                <select id="financialMetric">
+                    <option value="budget_2013$">
+                        Budget
+                    </option>
+
+                    <option value="domgross_2013$">
+                        Domestic gross
+                    </option>
+
+                    <option
+                        value="intgross_2013$"
+                        selected
+                    >
+                        Worldwide gross
+                    </option>
+
+                    <option value="PROFIT_2013">
+                        Profit
+                    </option>
+                </select>
+            </div>
+
+
+            <button id="resetFilters">
+                Reset filters
+            </button>
+
+        </section>
+
+
+        <!-- KPI -->
+
+        <section class="kpi-grid">
+
+            <article class="kpi-card">
+                <p>Total films</p>
+                <h2 id="totalFilms">—</h2>
+            </article>
+
+            <article class="kpi-card">
+                <p>Bechdel pass rate</p>
+                <h2 id="passRate">—</h2>
+            </article>
+
+            <article class="kpi-card">
+                <p>Median budget</p>
+                <h2 id="medianBudget">—</h2>
+                <span>USD, adjusted to 2013 prices</span>
+            </article>
+
+            <article class="kpi-card">
+                <p>Median worldwide gross</p>
+                <h2 id="medianGross">—</h2>
+                <span>USD, adjusted to 2013 prices</span>
+            </article>
+
+        </section>
+
+
+        <!-- MAIN CHARTS -->
+
+        <section class="dashboard-grid">
+
+            <article class="chart-card">
+                <div class="chart-heading">
+                    <div>
+                        <h3>Bechdel pass rate over time</h3>
+
+                        <p>
+                            Percentage of films passing the test
+                            each year
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    id="passRateChart"
+                    class="chart"
+                ></div>
+            </article>
+
+
+            <article class="chart-card">
+                <div class="chart-heading">
+                    <div>
+                        <h3 id="financialChartTitle">
+                            Financial comparison
+                        </h3>
+
+                        <p>
+                            Median financial performance for
+                            PASS and FAIL films
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    id="financialChart"
+                    class="chart"
+                ></div>
+            </article>
+
+        </section>
+
+
+        <!-- SCATTER -->
+
+        <section class="wide-card">
+
+            <div class="chart-heading">
+                <div>
+                    <h3>Budget vs worldwide gross</h3>
+
+                    <p>
+                        Financial values adjusted to 2013 prices
+                    </p>
+                </div>
+            </div>
+
+            <div
+                id="scatterChart"
+                class="chart large-chart"
+            ></div>
+
+        </section>
+
+
+        <!-- TOP FILMS -->
+
+        <section class="wide-card">
+
+            <div class="chart-heading">
+                <div>
+                    <h3>Top films by worldwide gross</h3>
+
+                    <p>
+                        Highest-grossing films in the current
+                        filtered selection
+                    </p>
+                </div>
+            </div>
+
+            <div
+                id="topFilmsChart"
+                class="chart large-chart"
+            ></div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+            <p>
+                Data source: FiveThirtyEight, Bechdel dataset
+            </p>
+        </footer>
+
+    </main>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
